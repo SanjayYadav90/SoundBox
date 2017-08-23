@@ -10,17 +10,17 @@
    //Code for Registration 
    if(isset($_POST['signup']))
    {
-   	$fname=$_POST['fname'];
-   	$lname=$_POST['lname'];
-   	$email=$_POST['email'];
-   	$password=$_POST['password'];
-   	$contact=$_POST['contact'];
-   	$enc_password=md5($password);
-   	$a=date('Y-m-d');
-   	$msg=mysql_query("insert into users(fname,lname,email,password,contactno,posting_date) values('$fname','$lname','$email','$enc_password','$contact','$a')");
+      $fname=$_POST['fname'];
+      $lname=$_POST['lname'];
+      $email=$_POST['email'];
+      $password=$_POST['password'];
+      $contact=$_POST['contact'];
+      $enc_password=md5($password);
+      $a=date('Y-m-d');
+      $msg=mysql_query("insert into users(fname,lname,email,password,contactno,posting_date) values('$fname','$lname','$email','$enc_password','$contact','$a')");
    if($msg)
    {
-   	echo "<script>alert('Register successfully');</script>";
+      echo "<script>alert('Register successfully');</script>";
    }
    }
    
@@ -70,7 +70,7 @@
    }
    else
    {
-   echo "<script>alert('Email not register with us');</script>";	
+   echo "<script>alert('Email not register with us');</script>";  
    }
    }
    
@@ -89,11 +89,11 @@
       <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
       <script type="text/javascript">
          $(document).ready(function () {
-         	$('#horizontalTab').easyResponsiveTabs({
-         		type: 'default',       
-         		width: 'auto', 
-         		fit: true 
-         	});
+            $('#horizontalTab').easyResponsiveTabs({
+               type: 'default',       
+               width: 'auto', 
+               fit: true 
+            });
          });
       </script>
       <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,200italic,300italic,400italic,600italic|Lora:400,700,400italic,700italic|Raleway:400,500,300,600,700,200,100' rel='stylesheet' type='text/css'>
