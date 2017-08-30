@@ -21,6 +21,8 @@
       <script src="js/jquery-2.1.4.js"></script>
    </head>
    <!-- /w3layouts-agile -->
+   <?php include'dbconnection.php'; ?>
+   <?php include("checklogin.php");?>
    <body class="sticky-header left-side-collapsed"  onload="initMap()">
       <section>
          <!-- left side start-->
@@ -114,7 +116,33 @@
                      <div class="video-main">
                         <div class="video-record-list">
                            <div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
-                              <audio controls>
+
+
+                           <?php $ret=mysql_query("select * from audios");
+                                 $cnt=1;
+                                 while($row=mysql_fetch_array($ret))
+                                 {?>
+                              <tr> <?php print_r($ret); exit(); ?>
+                                 <td><?php echo $cnt;?></td>
+                                 <td><?php echo $row['title'];?></td>
+                                 <td><?php echo $row['album_name'];?></td>
+                                 <td><?php echo $row['artist_name'];?></td>
+                                 <td><?php echo $row['image'];?></td>
+                                 <td><?php echo $row['audio_type'];?></td>
+                                 <td><?php echo $row['file'];?></td>
+                                 <td><?php echo $row['created_at'];?></td>
+                                 <td><?php echo $row['updated_at'];?></td>
+                                 <td>
+                                    <a href="update-profile.php?uid=<?php echo $row['id'];?>"> 
+                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    <a href="manage-users.php?id=<?php echo $row['id'];?>"> 
+                                    <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o "></i></button></a>
+                                 </td>
+                              </tr>
+                              <?php $cnt=$cnt+1; }?>
+
+
+                              <audio controls "width=560px">
                                  <source src="media/01.CHADH_GAYA_ OOPAR.mp3" type="audio/ogg">
                                  Your browser does not support the audio element.
                               </audio>
